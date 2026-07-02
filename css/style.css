@@ -48,6 +48,14 @@ a {
     transition: var(--transition-smooth);
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
