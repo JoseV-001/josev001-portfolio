@@ -6,22 +6,32 @@
 	<meta name="description" content="Entre em contato com José Victor, desenvolvedor backend em formação e aberto a oportunidades profissionais e projetos.">
 	<meta name="author" content="José Victor">
 	<title>José Victor | Contato</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 	<!-- Header -->
-	<header>
-		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
-		</div>
+	<header class="header">
+		<div class="container header-content">
+			<div class="logo">
+				<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+					<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+				</a>
+			</div>
 
-		<nav aria-label="Navegação principal">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">Sobre</a></li>
-				<li><a href="projects.html">Projetos</a></li>
-				<li><a href="contact.html" aria-current="page">Contato</a></li>
-			</ul>
-		</nav>
+			<nav aria-label="Navegação principal">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about.html">Sobre</a></li>
+					<li><a class="nav-link" href="projects.html">Projetos</a></li>
+					<li><a class="nav-link" href="contact.html" aria-current="page">Contato</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<!-- Main -->
@@ -36,36 +46,38 @@
 		<section aria-labelledby="form-title">
 			<h2 id="form-title">Formulário de contato</h2>
 
-			<form action="#" method="post" aria-label="Formulário de contato de José Victor">
-				<div>
+			<form class="contact-form" action="#" method="post" novalidate aria-label="Formulário de contato de José Victor">
+				<div class="form-field">
 					<label for="name">Nome</label>
 					<input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-help name-error">
 					<p id="name-help">Informe seu nome completo.</p>
 					<p id="name-error" aria-live="polite"></p>
 				</div>
 
-				<div>
+				<div class="form-field">
 					<label for="email">Email</label>
 					<input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-help email-error">
 					<p id="email-help">Use um email válido para resposta.</p>
 					<p id="email-error" aria-live="polite"></p>
 				</div>
 
-				<div>
+				<div class="form-field">
 					<label for="subject">Assunto</label>
 					<input type="text" id="subject" name="subject" required aria-describedby="subject-help subject-error">
 					<p id="subject-help">Descreva brevemente o motivo do contato.</p>
 					<p id="subject-error" aria-live="polite"></p>
 				</div>
 
-				<div>
+				<div class="form-field">
 					<label for="message">Mensagem</label>
 					<textarea id="message" name="message" rows="6" required aria-describedby="message-help message-error"></textarea>
 					<p id="message-help">Escreva sua mensagem com o máximo de detalhes possível.</p>
 					<p id="message-error" aria-live="polite"></p>
 				</div>
 
-				<button type="submit">Enviar</button>
+				<p id="form-status" aria-live="polite"></p>
+
+				<button class="btn btn-primary" type="submit">Enviar</button>
 			</form>
 		</section>
 
@@ -84,22 +96,25 @@
 	</main>
 
 	<!-- Footer -->
-	<footer>
+	<footer class="footer">
+		<div class="container footer-content">
 		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
+			<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+				<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+			</a>
 		</div>
 
 		<nav aria-label="Links rápidos">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">Sobre</a></li>
-				<li><a href="projects.html">Projetos</a></li>
-				<li><a href="contact.html">Contato</a></li>
+			<ul class="nav-list">
+				<li><a class="nav-link" href="index.html">Home</a></li>
+				<li><a class="nav-link" href="about.html">Sobre</a></li>
+				<li><a class="nav-link" href="projects.html">Projetos</a></li>
+				<li><a class="nav-link" href="contact.html">Contato</a></li>
 			</ul>
 		</nav>
 
 		<nav aria-label="Redes sociais e contato">
-			<ul>
+			<ul class="nav-list">
 				<li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o GitHub de José Victor">GitHub</a></li>
 				<li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o LinkedIn de José Victor">LinkedIn</a></li>
 				<li><a href="mailto:seuemail@example.com" aria-label="Enviar um email para José Victor">Email</a></li>
@@ -107,6 +122,10 @@
 		</nav>
 
 		<p>&copy; 2026 José Victor. Todos os direitos reservados.</p>
+		</div>
 	</footer>
+
+	<script defer src="js/effects.js"></script>
+	<script defer src="js/form.js"></script>
 </body>
 </html>

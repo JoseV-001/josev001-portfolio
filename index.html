@@ -6,29 +6,41 @@
 	<meta name="description" content="Portfólio profissional de José Victor, desenvolvedor backend especializado em Java, Spring Boot e bancos de dados relacionais.">
 	<meta name="author" content="José Victor">
 	<title>José Victor | Desenvolvedor Backend</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 	<!-- Header -->
-	<header>
-		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
-		</div>
+	<header class="header">
+		<div class="container header-content">
+			<div class="logo">
+				<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+					<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+				</a>
+			</div>
 
-		<nav aria-label="Navegação principal">
-			<ul>
-				<li><a href="index.html" aria-current="page">Home</a></li>
-				<li><a href="about.html">Sobre</a></li>
-				<li><a href="projects.html">Projetos</a></li>
-				<li><a href="contact.html">Contato</a></li>
-			</ul>
-		</nav>
+			<nav aria-label="Navegação principal">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
+					<li><a class="nav-link" href="about.html">Sobre</a></li>
+					<li><a class="nav-link" href="projects.html">Projetos</a></li>
+					<li><a class="nav-link" href="contact.html">Contato</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<!-- Main -->
 	<main>
 		<!-- Seção Hero -->
-		<section id="home" aria-labelledby="hero-title">
-			<div>
+		<section id="home" class="hero" aria-labelledby="hero-title">
+			<div class="hero-content">
+				<div class="hero-text">
+				<img class="hero-brand" src="img/software-engineer.png" alt="Logo com nome e função de José Victor" width="520" height="180">
 				<p>Olá, eu sou</p>
 				<h1 id="hero-title">José Victor</h1>
 				<h2>Desenvolvedor Backend</h2>
@@ -44,15 +56,15 @@
 					<li>PostgreSQL</li>
 				</ul>
 
-				<div>
-					<a href="projects.html">Ver Projetos</a>
-					<a href="contact.html">Entrar em Contato</a>
+				<div class="hero-buttons">
+					<a class="btn btn-primary" href="projects.html">Ver Projetos</a>
+					<a class="btn btn-outline" href="contact.html">Entrar em Contato</a>
+				</div>
 				</div>
 			</div>
 
-			<figure>
-				<img src="assets/img/profile-placeholder.jpg" alt="Espaço reservado para a foto de perfil de José Victor" width="400" height="400">
-				<figcaption>Imagem de perfil profissional</figcaption>
+			<figure class="hero-media">
+				<img src="img/perfil.png" alt="Foto de perfil de José Victor" width="400" height="400">
 			</figure>
 		</section>
 
@@ -113,7 +125,7 @@
 			<h2 id="projects-title">Projetos em Destaque</h2>
 
 			<article aria-labelledby="project-1-title">
-				<img src="assets/img/projeto-1.jpg" alt="Imagem de apresentação do projeto Sistema de Gestão Acadêmica" width="640" height="360">
+				<img src="img/projeto-1.jpg" alt="Imagem de apresentação do projeto Sistema de Gestão Acadêmica" width="640" height="360">
 				<h3 id="project-1-title">Sistema de Gestão Acadêmica</h3>
 				<p>Plataforma para organização de alunos, turmas e matrículas com foco em automação de processos internos.</p>
 				<p><strong>Tecnologias:</strong> Java, Spring Boot, MySQL</p>
@@ -121,7 +133,7 @@
 			</article>
 
 			<article aria-labelledby="project-2-title">
-				<img src="assets/img/projeto-2.jpg" alt="Imagem de apresentação do projeto API de Controle Financeiro" width="640" height="360">
+				<img src="img/projeto-2.jpg" alt="Imagem de apresentação do projeto API de Controle Financeiro" width="640" height="360">
 				<h3 id="project-2-title">API de Controle Financeiro</h3>
 				<p>API REST para registro de receitas, despesas e relatórios de acompanhamento financeiro.</p>
 				<p><strong>Tecnologias:</strong> Java, Spring Boot, PostgreSQL</p>
@@ -129,7 +141,7 @@
 			</article>
 
 			<article aria-labelledby="project-3-title">
-				<img src="assets/img/projeto-3.jpg" alt="Imagem de apresentação do projeto Catálogo de Serviços" width="640" height="360">
+				<img src="img/projeto-3.jpg" alt="Imagem de apresentação do projeto Catálogo de Serviços" width="640" height="360">
 				<h3 id="project-3-title">Catálogo de Serviços</h3>
 				<p>Aplicação para exibir serviços, organizar categorias e centralizar informações para clientes e parceiros.</p>
 				<p><strong>Tecnologias:</strong> HTML5, CSS3, JavaScript</p>
@@ -141,27 +153,30 @@
 		<section id="cta" aria-labelledby="cta-title">
 			<h2 id="cta-title">Vamos conversar sobre o seu próximo projeto</h2>
 			<p>Se você precisa de um desenvolvedor backend comprometido com qualidade técnica e entrega consistente, entre em contato comigo.</p>
-			<a href="contact.html">Contato</a>
+			<a class="btn btn-primary" href="contact.html">Contato</a>
 		</section>
 	</main>
 
 	<!-- Footer -->
-	<footer>
+	<footer class="footer">
+		<div class="container footer-content">
 		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
+			<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+				<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+			</a>
 		</div>
 
 		<nav aria-label="Navegação rápida">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">Sobre</a></li>
-				<li><a href="projects.html">Projetos</a></li>
-				<li><a href="contact.html">Contato</a></li>
+			<ul class="nav-list">
+				<li><a class="nav-link" href="index.html">Home</a></li>
+				<li><a class="nav-link" href="about.html">Sobre</a></li>
+				<li><a class="nav-link" href="projects.html">Projetos</a></li>
+				<li><a class="nav-link" href="contact.html">Contato</a></li>
 			</ul>
 		</nav>
 
 		<nav aria-label="Redes sociais e contato">
-			<ul>
+			<ul class="nav-list">
 				<li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o GitHub de José Victor">GitHub</a></li>
 				<li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o LinkedIn de José Victor">LinkedIn</a></li>
 				<li><a href="mailto:seuemail@example.com" aria-label="Enviar um email para José Victor">Email</a></li>
@@ -169,6 +184,9 @@
 		</nav>
 
 		<p>&copy; 2026 José Victor. Todos os direitos reservados.</p>
+		</div>
 	</footer>
+
+	<script defer src="js/effects.js"></script>
 </body>
 </html>

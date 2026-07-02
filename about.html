@@ -6,44 +6,54 @@
 	<meta name="description" content="Conheça a trajetória de José Victor, desenvolvedor backend em formação e experiência com sistemas, Java e engenharia de software.">
 	<meta name="author" content="José Victor">
 	<title>José Victor | Sobre Mim</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 	<!-- Header -->
-	<header>
-		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
-		</div>
+	<header class="header">
+		<div class="container header-content">
+			<div class="logo">
+				<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+					<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+				</a>
+			</div>
 
-		<nav aria-label="Navegação principal">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html" aria-current="page">Sobre</a></li>
-				<li><a href="projects.html">Projetos</a></li>
-				<li><a href="contact.html">Contato</a></li>
-			</ul>
-		</nav>
+			<nav aria-label="Navegação principal">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about.html" aria-current="page">Sobre</a></li>
+					<li><a class="nav-link" href="projects.html">Projetos</a></li>
+					<li><a class="nav-link" href="contact.html">Contato</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<!-- Main -->
 	<main>
 		<!-- Seção Sobre Mim -->
-		<section aria-labelledby="about-title">
-			<h1 id="about-title">Sobre Mim</h1>
+		<section class="hero" aria-labelledby="about-title">
+			<div class="about-content">
+				<h1 id="about-title">Sobre Mim</h1>
+				<p>Sou José Victor, desenvolvedor backend em formação, com interesse em construir aplicações sólidas, organizadas e escaláveis. Minha trajetória combina base técnica, estudo contínuo e prática com projetos que envolvem Java, bancos de dados e desenvolvimento web.</p>
+				<p>Busco evoluir profissionalmente em ambientes que valorizem aprendizado, qualidade de código e resolução de problemas reais por meio da tecnologia.</p>
+			</div>
 
 			<figure>
-				<img src="assets/img/about-placeholder.jpg" alt="Foto de perfil de José Victor" width="400" height="400">
-				<figcaption>Foto de apresentação profissional de José Victor</figcaption>
+				<img src="img/perfil.png" alt="Foto de perfil de José Victor" width="400" height="400">
 			</figure>
-
-			<p>Sou José Victor, desenvolvedor backend em formação, com interesse em construir aplicações sólidas, organizadas e escaláveis. Minha trajetória combina base técnica, estudo contínuo e prática com projetos que envolvem Java, bancos de dados e desenvolvimento web.</p>
-			<p>Busco evoluir profissionalmente em ambientes que valorizem aprendizado, qualidade de código e resolução de problemas reais por meio da tecnologia.</p>
 		</section>
 
 		<!-- Seção Minha Jornada -->
 		<section aria-labelledby="journey-title">
 			<h2 id="journey-title">Minha Jornada</h2>
 
-			<ol>
+			<ol class="timeline">
 				<li>
 					<article>
 						<h3>2023</h3>
@@ -107,22 +117,25 @@
 	</main>
 
 	<!-- Footer -->
-	<footer>
+	<footer class="footer">
+		<div class="container footer-content">
 		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
+			<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+				<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+			</a>
 		</div>
 
 		<nav aria-label="Links rápidos">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">Sobre</a></li>
-				<li><a href="projects.html">Projetos</a></li>
-				<li><a href="contact.html">Contato</a></li>
+			<ul class="nav-list">
+				<li><a class="nav-link" href="index.html">Home</a></li>
+				<li><a class="nav-link" href="about.html">Sobre</a></li>
+				<li><a class="nav-link" href="projects.html">Projetos</a></li>
+				<li><a class="nav-link" href="contact.html">Contato</a></li>
 			</ul>
 		</nav>
 
 		<nav aria-label="Redes sociais e contato">
-			<ul>
+			<ul class="nav-list">
 				<li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o GitHub de José Victor">GitHub</a></li>
 				<li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o LinkedIn de José Victor">LinkedIn</a></li>
 				<li><a href="mailto:seuemail@example.com" aria-label="Enviar um email para José Victor">Email</a></li>
@@ -130,6 +143,9 @@
 		</nav>
 
 		<p>&copy; 2026 José Victor. Todos os direitos reservados.</p>
+		</div>
 	</footer>
+
+	<script defer src="js/effects.js"></script>
 </body>
 </html>

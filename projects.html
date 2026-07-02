@@ -7,22 +7,32 @@
 	<meta name="author" content="José Victor">
 	<meta name="keywords" content="Java, Spring Boot, Backend, Desenvolvedor Java, Portfolio, PostgreSQL, MySQL, Hibernate, APIs REST">
 	<title>José Victor | Projetos</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 	<!-- Header -->
-	<header>
-		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
-		</div>
+	<header class="header">
+		<div class="container header-content">
+			<div class="logo">
+				<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+					<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+				</a>
+			</div>
 
-		<nav aria-label="Navegação principal">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">Sobre</a></li>
-				<li><a href="projects.html" aria-current="page">Projetos</a></li>
-				<li><a href="contact.html">Contato</a></li>
-			</ul>
-		</nav>
+			<nav aria-label="Navegação principal">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about.html">Sobre</a></li>
+					<li><a class="nav-link" href="projects.html" aria-current="page">Projetos</a></li>
+					<li><a class="nav-link" href="contact.html">Contato</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<!-- Main -->
@@ -41,7 +51,7 @@
 				<!-- Projeto 1 -->
 				<article class="project-card" aria-labelledby="project-1-title">
 					<figure class="project-card__media">
-						<img src="assets/img/project-placeholder-1.jpg" alt="Imagem ilustrativa do Sistema de Gerenciamento de Concessionária" width="640" height="360">
+						<img src="img/project-placeholder-1.jpg" alt="Imagem ilustrativa do Sistema de Gerenciamento de Concessionária" width="640" height="360">
 						<figcaption>Imagem ilustrativa do projeto Sistema de Gerenciamento de Concessionária</figcaption>
 					</figure>
 
@@ -68,7 +78,7 @@
 				<!-- Projeto 2 -->
 				<article class="project-card" aria-labelledby="project-2-title">
 					<figure class="project-card__media">
-						<img src="assets/img/project-placeholder-2.jpg" alt="Imagem ilustrativa do projeto Car Dealer" width="640" height="360">
+						<img src="img/project-placeholder-2.jpg" alt="Imagem ilustrativa do projeto Car Dealer" width="640" height="360">
 						<figcaption>Imagem ilustrativa do projeto Car Dealer</figcaption>
 					</figure>
 
@@ -94,7 +104,7 @@
 				<!-- Projeto 3 -->
 				<article class="project-card" aria-labelledby="project-3-title">
 					<figure class="project-card__media">
-						<img src="assets/img/project-placeholder-3.jpg" alt="Imagem ilustrativa do projeto Chess System Java" width="640" height="360">
+						<img src="img/project-placeholder-3.jpg" alt="Imagem ilustrativa do projeto Chess System Java" width="640" height="360">
 						<figcaption>Imagem ilustrativa do projeto Chess System Java</figcaption>
 					</figure>
 
@@ -120,7 +130,7 @@
 				<!-- Projeto 4 -->
 				<article class="project-card" aria-labelledby="project-4-title">
 					<figure class="project-card__media">
-						<img src="assets/img/project-placeholder-4.jpg" alt="Imagem ilustrativa do projeto Workshop REST API" width="640" height="360">
+						<img src="img/project-placeholder-4.jpg" alt="Imagem ilustrativa do projeto Workshop REST API" width="640" height="360">
 						<figcaption>Imagem ilustrativa do projeto Workshop REST API</figcaption>
 					</figure>
 
@@ -151,27 +161,30 @@
 		<section aria-labelledby="cta-title">
 			<h2 id="cta-title">Gostou dos meus projetos?</h2>
 			<p>Se você deseja conversar sobre desenvolvimento backend, arquitetura de software ou oportunidades profissionais, entre em contato.</p>
-			<a href="contact.html" aria-label="Entrar em contato com José Victor">Entre em Contato</a>
+			<a class="btn btn-primary" href="contact.html" aria-label="Entrar em contato com José Victor">Entre em Contato</a>
 		</section>
 	</main>
 
 	<!-- Footer -->
-	<footer>
+	<footer class="footer">
+		<div class="container footer-content">
 		<div class="logo">
-			<a href="index.html" aria-label="Ir para a página inicial de José Victor">José Victor</a>
+			<a class="logo-link" href="index.html" aria-label="Ir para a página inicial de José Victor">
+				<img src="img/logo.png" alt="Logo José Victor" width="56" height="56">
+			</a>
 		</div>
 
 		<nav aria-label="Links rápidos">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">Sobre</a></li>
-				<li><a href="projects.html">Projetos</a></li>
-				<li><a href="contact.html">Contato</a></li>
+			<ul class="nav-list">
+				<li><a class="nav-link" href="index.html">Home</a></li>
+				<li><a class="nav-link" href="about.html">Sobre</a></li>
+				<li><a class="nav-link" href="projects.html">Projetos</a></li>
+				<li><a class="nav-link" href="contact.html">Contato</a></li>
 			</ul>
 		</nav>
 
 		<nav aria-label="Redes sociais e contato">
-			<ul>
+			<ul class="nav-list">
 				<li><a href="https://github.com/JoseV-001" target="_blank" rel="noopener noreferrer" aria-label="Acessar o GitHub de José Victor">GitHub</a></li>
 				<li><a href="https://www.linkedin.com/in/jos%C3%A9-victor-460175269/" target="_blank" rel="noopener noreferrer" aria-label="Acessar o LinkedIn de José Victor">LinkedIn</a></li>
 				<li><a href="mailto:victojose46@gmail.com" aria-label="Enviar um email para José Victor">Email</a></li>
@@ -179,6 +192,9 @@
 		</nav>
 
 		<p>&copy; 2026 José Victor. Todos os direitos reservados.</p>
+		</div>
 	</footer>
+
+	<script defer src="js/effects.js"></script>
 </body>
 </html>
