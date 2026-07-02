@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.setupContactForm = () => {
 	const form = document.querySelector('.contact-form');
 
 	if (!form) {
@@ -90,4 +90,5 @@ document.addEventListener('DOMContentLoaded', () => {
 			status.classList.add('is-success');
 		}
 	});
-});
+};
+

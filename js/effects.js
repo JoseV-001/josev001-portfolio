@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.setupRevealEffects = () => {
 	const revealTargets = document.querySelectorAll('main > section, .project-card, .education-grid article, form');
 
 	if (!revealTargets.length) {
@@ -27,4 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	revealTargets.forEach((element) => observer.observe(element));
-});
+};
