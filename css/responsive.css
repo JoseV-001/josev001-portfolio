@@ -1,51 +1,6 @@
-/* ========================================================================== 
-   RESPONSIVIDADE
-   ========================================================================== */
-
-@media (max-width: 992px) {
-	.hero,
-	#home {
-		grid-template-columns: 1fr;
-	}
-
-	.hero-media,
-	#home figure {
-		justify-self: start;
-		width: min(100%, 360px);
-	}
-}
-
-@media (max-width: 768px) {
-	main {
-		padding-top: 72px;
-	}
-
-	header .container,
-	.header-content,
-	.footer-content,
-	footer .container {
-		flex-direction: column;
-		justify-content: center;
-		padding: 1rem 0;
-	}
-
-	header nav ul,
-	footer nav ul,
-	.nav-list,
-	.hero-buttons,
-	.project-card__actions {
-		justify-content: center;
-	}
-
-	main > section {
-		width: min(100%, calc(100% - 24px));
-		padding: 3.5rem 0;
-	}
-
-	.projects-grid,
-	.education-grid,
-	#stack,
-	#projetos {
-		grid-template-columns: 1fr;
-	}
-}
+/* ==========================================================================
+   RESPONSIVIDADE (Unificada no style.css)
+   ========================================================================== 
+   As regras de responsividade foram unificadas no arquivo principal css/style.css
+   na Seção 10. Este arquivo foi mantido vazio para evitar redundâncias e manter
+   a compatibilidade com o HTML existente. */
