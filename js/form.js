@@ -7,10 +7,10 @@ window.setupContactForm = () => {
 
 	const status = document.getElementById('form-status');
 	const fields = [
-		{ name: 'name', label: 'Nome', minLength: 3, validator: (value) => value.trim().length >= 3, message: 'Informe um nome com pelo menos 3 caracteres.' },
+		{ name: 'nome', label: 'Nome', minLength: 3, validator: (value) => value.trim().length >= 3, message: 'Informe um nome com pelo menos 3 caracteres.' },
 		{ name: 'email', label: 'Email', validator: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()), message: 'Informe um email válido.' },
-		{ name: 'subject', label: 'Assunto', minLength: 3, validator: (value) => value.trim().length >= 3, message: 'O assunto precisa ter pelo menos 3 caracteres.' },
-		{ name: 'message', label: 'Mensagem', minLength: 10, validator: (value) => value.trim().length >= 10, message: 'A mensagem precisa ter pelo menos 10 caracteres.' },
+		{ name: 'assunto', label: 'Assunto', minLength: 3, validator: (value) => value.trim().length >= 3, message: 'O assunto precisa ter pelo menos 3 caracteres.' },
+		{ name: 'mensagem', label: 'Mensagem', minLength: 10, validator: (value) => value.trim().length >= 10, message: 'A mensagem precisa ter pelo menos 10 caracteres.' },
 	];
 
 	const getField = (name) => form.elements.namedItem(name);
@@ -64,7 +64,7 @@ window.setupContactForm = () => {
 		});
 	});
 
-	form.addEventListener('submit', (event) => {
+	form.addEventListener('submit', async (event) => {
 		event.preventDefault();
 		clearStatus();
 
@@ -81,13 +81,52 @@ window.setupContactForm = () => {
 			return;
 		}
 
-		form.reset();
-
-		fields.forEach(({ name }) => setFieldState(name, true, ''));
+		const submitButton = form.querySelector('button[type="submit"]');
+		const originalButtonText = submitButton ? submitButton.textContent : 'Enviar';
+		if (submitButton) {
+			submitButton.disabled = true;
+			submitButton.textContent = 'Enviando...';
+		}
 
 		if (status) {
-			status.textContent = 'Mensagem enviada com sucesso. Retornarei em breve.';
-			status.classList.add('is-success');
+			status.textContent = 'Enviando sua mensagem...';
+			status.classList.remove('is-error', 'is-success');
+		}
+
+		try {
+			const data = new FormData(form);
+			const response = await fetch(form.action, {
+				method: form.method,
+				body: data,
+				headers: {
+					'Accept': 'application/json'
+				}
+			});
+
+			if (response.ok) {
+				form.reset();
+				fields.forEach(({ name }) => setFieldState(name, true, ''));
+				if (status) {
+					status.textContent = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
+					status.classList.add('is-success');
+				}
+			} else {
+				const responseData = await response.json();
+				if (status) {
+					status.textContent = responseData.error || 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.';
+					status.classList.add('is-error');
+				}
+			}
+		} catch (error) {
+			if (status) {
+				status.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
+				status.classList.add('is-error');
+			}
+		} finally {
+			if (submitButton) {
+				submitButton.disabled = false;
+				submitButton.textContent = originalButtonText;
+			}
 		}
 	});
 };
