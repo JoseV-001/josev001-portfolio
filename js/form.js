@@ -1,83 +1,28 @@
 window.setupContactForm = () => {
-	const form = document.querySelector('.contact-form');
+	const form = document.getElementById('contact-form');
 
 	if (!form) {
 		return;
 	}
 
-	const status = document.getElementById('form-status');
-	const fields = [
-		{ name: 'nome', label: 'Nome', minLength: 3, validator: (value) => value.trim().length >= 3, message: 'Informe um nome com pelo menos 3 caracteres.' },
-		{ name: 'email', label: 'Email', validator: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()), message: 'Informe um email válido.' },
-		{ name: 'assunto', label: 'Assunto', minLength: 3, validator: (value) => value.trim().length >= 3, message: 'O assunto precisa ter pelo menos 3 caracteres.' },
-		{ name: 'mensagem', label: 'Mensagem', minLength: 10, validator: (value) => value.trim().length >= 10, message: 'A mensagem precisa ter pelo menos 10 caracteres.' },
-	];
-
-	const getField = (name) => form.elements.namedItem(name);
-
-	const setFieldState = (fieldName, isValid, message = '') => {
-		const field = getField(fieldName);
-		const error = document.getElementById(`${fieldName}-error`);
-
-		if (!field || !error) {
-			return;
-		}
-
-		field.setAttribute('aria-invalid', String(!isValid));
-		error.textContent = message;
-		error.classList.toggle('is-error', !isValid);
-	};
-
-	const validateField = ({ name, validator, message }) => {
-		const field = getField(name);
-
-		if (!field) {
-			return true;
-		}
-
-		const value = field.value ?? '';
-		const isValid = validator(value);
-
-		setFieldState(name, isValid, isValid ? '' : message);
-		return isValid;
-	};
-
-	const clearStatus = () => {
-		if (!status) {
-			return;
-		}
-
-		status.textContent = '';
-		status.classList.remove('is-success', 'is-error');
-	};
-
-	fields.forEach(({ name }) => {
-		const field = getField(name);
-
-		if (!field) {
-			return;
-		}
-
-		field.addEventListener('input', () => {
-			clearStatus();
-			validateField(fields.find((item) => item.name === name));
-		});
-	});
-
-	form.addEventListener('submit', async (event) => {
+	form.addEventListener('submit', function (event) {
 		event.preventDefault();
-		clearStatus();
 
-		const firstInvalidField = fields.find((field) => !validateField(field));
+		const name = document.getElementById('name').value.trim();
+		const email = document.getElementById('email').value.trim();
+		const subject = document.getElementById('subject').value.trim();
+		const message = document.getElementById('message').value.trim();
 
-		if (firstInvalidField) {
-			if (status) {
-				status.textContent = 'Revise os campos destacados antes de enviar.';
-				status.classList.add('is-error');
-			}
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-			const invalidInput = getField(firstInvalidField.name);
-			invalidInput?.focus();
+		// Validação simples
+		if (!name || !email || !subject || !message) {
+			alert("Por favor, preencha todos os campos corretamente.");
+			return;
+		}
+
+		if (!emailRegex.test(email)) {
+			alert("Por favor, insira um e-mail válido.");
 			return;
 		}
 
@@ -88,46 +33,28 @@ window.setupContactForm = () => {
 			submitButton.textContent = 'Enviando...';
 		}
 
-		if (status) {
-			status.textContent = 'Enviando sua mensagem...';
-			status.classList.remove('is-error', 'is-success');
-		}
+		const url = "https://formspree.io/f/mgojprdw";
+		const formData = new FormData(this);
 
-		try {
-			const data = new FormData(form);
-			const response = await fetch(form.action, {
-				method: form.method,
-				body: data,
-				headers: {
-					'Accept': 'application/json'
-				}
-			});
-
+		fetch(url, {
+			method: "POST",
+			body: formData,
+			headers: { 'Accept': 'application/json' }
+		}).then(response => {
 			if (response.ok) {
-				form.reset();
-				fields.forEach(({ name }) => setFieldState(name, true, ''));
-				if (status) {
-					status.textContent = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
-					status.classList.add('is-success');
-				}
+				alert("Mensagem enviada com sucesso! Entrarei em contato em breve.");
+				this.reset(); // Limpa o formulário
 			} else {
-				const responseData = await response.json();
-				if (status) {
-					status.textContent = responseData.error || 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.';
-					status.classList.add('is-error');
-				}
+				alert("Ops! Ocorreu um erro ao enviar sua mensagem. Tente novamente.");
 			}
-		} catch (error) {
-			if (status) {
-				status.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
-				status.classList.add('is-error');
-			}
-		} finally {
+		}).catch(error => {
+			alert("Erro de rede ao tentar enviar o formulário.");
+		}).finally(() => {
 			if (submitButton) {
 				submitButton.disabled = false;
 				submitButton.textContent = originalButtonText;
 			}
-		}
+		});
 	});
 };
 
