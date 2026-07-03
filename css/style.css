@@ -912,4 +912,18 @@ section[aria-labelledby="form-title"] {
     .project-card__media img {
         height: 160px;
     }
+
+    /* Garantir visibilidade e desativar animação reveal travada no mobile */
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Ajuste de largura e limites para os cards de projetos */
+    #projetos > article,
+    .project-card {
+        width: 100%;
+        max-width: 100%;
+    }
 }
